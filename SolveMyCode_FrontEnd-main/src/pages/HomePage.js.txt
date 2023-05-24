@@ -1,0 +1,53 @@
+import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "../style/style.css";
+import Contact from "../components/Contact";
+import FooterCop from "../components/FooterCop";
+import Navbar from "../components/Navbar";
+
+function HomePage() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+  return (
+    <div className="mt-5">
+      <Navbar />
+      <div
+        className="row d-flex justify-content-start align-items-center"
+        id="header"
+      >
+        <div className="col-md-8 col-lg-8 col-sm-8 col-12">
+          <div className="box ms-5 text-light">
+            <h1 className="fw-bolder " data-aos="fade-right"  data-aos-delay="300"
+              data-aos-duration="3000"
+              data-aos-easing="ease-in-sine" id="titleHeader">Hello developer ...</h1>
+            <p className="mt-4">
+              We're a problem-solving website with a team of experts who offer
+              solutions for a variety of issues. Submit your problem and receive
+              quick and confidential support. We value your privacy and are
+              committed to providing you with the highest level of care. Let us
+              help you overcome your challenges today.
+            </p>
+            <div>
+              <Link to="/add" className="btn btn-light me-3">Ask question</Link>
+              <Link to="/about" className="btn btn-outline-light">About</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Contact/>
+      <FooterCop />
+      <div className='bg-dark col-12'>
+          <p className="p-3 text-light text-center">Copyright © 2023 all rights reserved <strong>Mahdi laith</strong></p>
+      </div>
+    </div>
+  );
+}
+
+export default HomePage;
